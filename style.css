@@ -1,0 +1,242 @@
+/* GLOBAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 17px;
+    scroll-behavior: smooth;
+}
+
+/* SCROLLBAR STYLING */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #3399ff;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #007acc;
+}
+
+/* BODY */
+body {
+    margin: 20px;
+    background-color: #f9fafb;
+    color: #222;
+}
+
+/* HEADINGS & SECTIONS */
+h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    animation: fadeIn 1s ease-in-out;
+}
+.instructions {
+    font-size: 15px;
+    background-color: #e6f2ff;
+    padding: 10px 15px;
+    border-left: 5px solid #3399ff;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    animation: slideIn 1s ease-in-out;
+}
+
+/* FORM ELEMENTS */
+.preferences,
+select,
+input,
+button {
+    font-size: 15px;
+    margin: 5px 0;
+}
+
+button {
+    padding: 6px 12px;
+    background-color: #3399ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: #007acc;
+}
+
+#priority-toggle-btn {
+    font-size: 13px;
+    font-weight: bold;
+    padding: 4px 10px;
+    background-color: #ffd966;
+    color: #222;
+    border: 1px solid #d4af37;
+    margin-left: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+#priority-toggle-btn:hover {
+    background-color: #ffcc00;
+}
+
+/* TABLE STYLING */
+table {
+    border-collapse: collapse;
+    margin-top: 15px;
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+thead {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1faff;
+}
+
+table input {
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 3px;
+    width: 80px;
+}
+
+/* SMALL BUTTONS */
+.process-btn button {
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    margin: 2px;
+    transition: background-color 0.2s;
+}
+.process-btn button:hover {
+    background-color: #e0e0e0;
+}
+
+/* OUTPUT + GANTT CHART */
+#output {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-left: 5px solid #66cc66;
+    border-radius: 6px;
+}
+
+#gantt-chart,
+#timeline-chart {
+    height: 250px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-top: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+/* OTHER CHART CONTAINERS */
+#algorithm-chart-div,
+#round-robin-chart-div {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+/* STATE TABLES (Ready/Running/etc.) */
+#time-log-table-div {
+    margin-top: 8vh;
+    position: relative;
+}
+.time-log-table {
+    width: 10%;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+#remain-table { left: 7.5%; }
+#ready-table { left: 32.5%; }
+#running-table { right: 32.5%; }
+#block-table { left: 45%; top: 8vw; }
+#terminate-table { right: 7.5%; }
+
+.arrow {
+    position: absolute;
+    font-size: 80px;
+    color: #bbb;
+}
+#remain-ready { left: 20.5%; top: -62px; }
+#ready-running { transform: rotate(180deg); left: 47%; top: -15px; }
+#running-ready { left: 47%; top: -60px; }
+#running-terminate { right: 20.5%; top: -62px; }
+#running-block { transform: rotate(135deg); left: 52%; top: 20px; }
+#block-ready { transform: rotate(225deg); left: 40%; top: 20px; }
+
+.hide {
+    display: none;
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 768px) {
+    body {
+        margin: 10px;
+    }
+    table {
+        font-size: 14px;
+    }
+    .time-log-table {
+        position: static;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .arrow {
+        display: none;
+    }
+    #gantt-chart, #timeline-chart {
+        height: auto;
+        overflow-x: scroll;
+    }
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
